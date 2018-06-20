@@ -35,3 +35,6 @@ or
 
 # Start App
 np serve
+
+# How to hide project files/folders
+https://stackoverflow.com/questions/30140112/how-do-i-hide-certain-files-from-the-sidebar-in-visual-studio-code
