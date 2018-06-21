@@ -14,11 +14,11 @@ export class HomeComponent implements OnInit {
   constructor(private http: Http) { }
 
   ngOnInit() {
-    this.getValues()
+    this.getValues();
   }
 
   registerToggle() {
-    this.registerMode = !this.registerMode;
+    this.registerMode = true;
   }
 
   getValues() {
@@ -26,6 +26,10 @@ export class HomeComponent implements OnInit {
       this.values = response.json();
       // console.log(response);
     });
+  }
+
+  cancelRegisterMode(registerMode: boolean) {
+    this.registerMode = registerMode;
   }
 
 }
