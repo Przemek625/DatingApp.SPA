@@ -10,7 +10,6 @@ export class RegisterComponent implements OnInit {
 
   model: any = {};
   // https://angular.io/guide/template-syntax#inputs-outputs
-  @Input() valuesFromHome: any;
   @Output() cancelRegister = new EventEmitter();
 
   constructor(private authService: AuthService) { }
