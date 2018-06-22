@@ -33,7 +33,7 @@
 
       <ul *ngIf="loggedIn()" class="nav navbar-nav navbar-right">
         <li class="dropdown" dropdown>
-          <a href="#" class="dropdown-toggle" dropdownToggle>
+          <a (click)="false" class="dropdown-toggle" dropdownToggle>
             <!-- This error wont affect our application. The error is due to the fact that authService  authService is a private field.-->
             <!-- However typsricpt is comipiled to javascript and this field will for javascript be public anyway. -->
             <!-- the conditional operator `?` says that unique_name is not essential -->
