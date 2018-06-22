@@ -7,7 +7,7 @@ import { JwtHelper } from 'angular2-jwt';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
   title = 'dating app';
   jwtHelper: JwtHelper = new JwtHelper();

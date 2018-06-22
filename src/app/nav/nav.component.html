@@ -11,11 +11,15 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav" *ngIf="loggedIn()">
-        <li><a href="#">Matches</a></li>
-        <li><a href="#">Lists</a></li>
-        <li><a href="#">Matches</a></li>
-        <li><a href="#">Matches</a></li>
-
+        <li>
+          <a [routerLink]="['/members']" >Matches</a>
+        </li>
+        <li>
+          <a [routerLink]="['/lists']">Lists</a>
+        </li>
+        <li>
+          <a [routerLink]="['/messages']">Messages</a>
+        </li>
       </ul>
       <form *ngIf="!loggedIn()" #loginForm="ngForm" class="navbar-form navbar-right" (ngSubmit)="login()">
         <div class="form-group">
