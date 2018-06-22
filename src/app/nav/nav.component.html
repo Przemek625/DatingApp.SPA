@@ -10,7 +10,7 @@
       <a class="navbar-brand" href="#">Dating App</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" *ngIf="loggedIn()">
         <li><a href="#">Matches</a></li>
         <li><a href="#">Lists</a></li>
         <li><a href="#">Matches</a></li>
@@ -28,14 +28,13 @@
       </form>
 
       <ul *ngIf="loggedIn()" class="nav navbar-nav navbar-right">
-        <li><a (click)="logout()">Logout</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <li class="dropdown" dropdown>
+          <a href="#" class="dropdown-toggle" dropdownToggle>
             <!-- This error wont affect our application. The error is due to the fact that authService  authService is a private field.-->
             <!-- However typsricpt is comipiled to javascript and this field will for javascript be public anyway. -->
             <!-- the conditional operator `?` says that unique_name is not essential -->
             Welcome {{ authService.decodedToken?.unique_name | titlecase }} <span class="caret"></span></a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" *dropdownMenu>
             <li><a href="#">Edit Profile</a></li>
             <li><a href="#"><i class="fa fa-user"></i>Edit Profile</a></li>
             <li role="separator" class="divider"></li>
