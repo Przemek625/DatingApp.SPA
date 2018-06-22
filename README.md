@@ -37,6 +37,7 @@ or
 `npm install alertifyjs --save` 
 `npm install angular2-jwt --save`
 `npm install ngx-bootstrap --save`
+`npm install bootswatch@3.3.7 --save`
 
 # Start App
 `np serve`
@@ -48,3 +49,4 @@ https://stackoverflow.com/questions/30140112/how-do-i-hide-certain-files-from-th
 http://alertifyjs.com/
 https://github.com/auth0/angular2-jwt
 https://valor-software.com/ngx-bootstrap/
+https://bootswatch.com/
