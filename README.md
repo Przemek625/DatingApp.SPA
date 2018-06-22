@@ -57,3 +57,6 @@ http://reactivex.io/documentation/operators/subscribe.html
 https://medium.com/@luukgruijs/understanding-creating-and-subscribing-to-observables-in-angular-426dbf0b04a3
 https://hackernoon.com/angular-providers-how-to-inject-3rd-party-library-af4a78722864
 https://blog.thoughtram.io/angular/2016/10/13/two-way-data-binding-in-angular-2.html
+
+#Generate guard
+`ng g guard auth --spec=false`
