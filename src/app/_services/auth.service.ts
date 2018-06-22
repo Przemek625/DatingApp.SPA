@@ -6,61 +6,65 @@ import 'rxjs/add/observable/throw';
 
 import { Observable } from 'rxjs/Observable';
 import { Key } from 'protractor';
-import { tokenNotExpired } from 'angular2-jwt';
-
+import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 
 @Injectable()
 export class AuthService {
-    baseUrl = 'http://localhost:5000/api/auth/';
-    userToken: any;
+  baseUrl = 'http://localhost:5000/api/auth/';
+  userToken: any;
+  decodedToken: any;
+  jwtHelper: JwtHelper = new JwtHelper();
 
-constructor(private http: Http) { }
+  constructor(private http: Http) {}
 
-login(model: any) {
+  login(model: any) {
     // We return observable of type Response
     // Map lets to take action on Observale
-    return this.http.post(this.baseUrl + 'login', model, this.requestOptions()).map((response: Response) => {
+    return this.http
+      .post(this.baseUrl + 'login', model, this.requestOptions())
+      .map((response: Response) => {
         const user = response.json();
         if (user) {
-            localStorage.setItem('token', user.tokenString);
-            this.userToken = user.tokenString;
+          localStorage.setItem('token', user.tokenString);
+          this.decodedToken = this.jwtHelper.decodeToken(user.tokenString);
+         // {nameid: "2", unique_name: "john", nbf: 1529655260, exp: 1529741660, iat: 1529655260}
+          console.log(this.decodedToken);
+          this.userToken = user.tokenString;
         }
-    }).catch(this.handleError);
-}
+      })
+      .catch(this.handleError);
+  }
 
-register(model: any) {
-    return this.http.post(this.baseUrl + 'register', model, this.requestOptions()).catch(this.handleError);
-}
+  register(model: any) {
+    return this.http
+      .post(this.baseUrl + 'register', model, this.requestOptions())
+      .catch(this.handleError);
+  }
 
-loggedIn() {
+  loggedIn() {
     return tokenNotExpired('token');
-}
+  }
 
-private requestOptions() {
-    const headers = new Headers({'Content-Type': 'application/json'});
-    return new RequestOptions({headers: headers});
-}
+  private requestOptions() {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    return new RequestOptions({ headers: headers });
+  }
 
-private handleError(error: any) {
+  private handleError(error: any) {
     const applicationError = error.headers.get('Application-Error');
 
     if (applicationError) {
-        return Observable.throw(applicationError);
+      return Observable.throw(applicationError);
     }
     const serverError = error.json();
     let modelStateErrors = '';
     if (serverError) {
-        for (const key in serverError) {
-            if (serverError[key]) {
-                modelStateErrors += serverError[key] + '\n';
-            }
+      for (const key in serverError) {
+        if (serverError[key]) {
+          modelStateErrors += serverError[key] + '\n';
         }
+      }
     }
-    return Observable.throw(
-        modelStateErrors || 'Server error'
-    );
-
-
-}
-
+    return Observable.throw(modelStateErrors || 'Server error');
+  }
 }

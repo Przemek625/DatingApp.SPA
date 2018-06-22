@@ -31,7 +31,10 @@
         <li><a (click)="logout()">Logout</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            Welcome User <span class="caret"></span></a>
+            <!-- This error wont affect our application. The error is due to the fact that authService  authService is a private field.-->
+            <!-- However typsricpt is comipiled to javascript and this field will for javascript be public anyway. -->
+            <!-- the conditional operator `?` says that unique_name is not essential -->
+            Welcome {{ authService.decodedToken?.unique_name | titlecase }} <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Edit Profile</a></li>
             <li><a href="#"><i class="fa fa-user"></i>Edit Profile</a></li>
