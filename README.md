@@ -48,6 +48,7 @@ https://stackoverflow.com/questions/30140112/how-do-i-hide-certain-files-from-th
 # 3rd part libraries
 http://alertifyjs.com/
 https://github.com/auth0/angular2-jwt
+https://github.com/auth0/angular2-jwt/tree/pre-v1.0
 https://valor-software.com/ngx-bootstrap/
 https://bootswatch.com/
 
