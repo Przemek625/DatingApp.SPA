@@ -57,6 +57,7 @@ http://reactivex.io/documentation/operators/subscribe.html
 https://medium.com/@luukgruijs/understanding-creating-and-subscribing-to-observables-in-angular-426dbf0b04a3
 https://hackernoon.com/angular-providers-how-to-inject-3rd-party-library-af4a78722864
 https://blog.thoughtram.io/angular/2016/10/13/two-way-data-binding-in-angular-2.html
+https://stackoverflow.com/questions/48092880/ng-serve-not-detecting-file-changes-automatically/48092935
 
 # Typescript links
 https://medium.com/front-end-hacking/typescript-class-vs-interface-99c0ae1c2136
