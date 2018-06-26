@@ -58,5 +58,11 @@ https://medium.com/@luukgruijs/understanding-creating-and-subscribing-to-observa
 https://hackernoon.com/angular-providers-how-to-inject-3rd-party-library-af4a78722864
 https://blog.thoughtram.io/angular/2016/10/13/two-way-data-binding-in-angular-2.html
 
+# Typescript links
+https://medium.com/front-end-hacking/typescript-class-vs-interface-99c0ae1c2136
+
+# Typescript Docs
+https://www.typescriptlang.org/docs/home.html
+
 #Generate guard
 `ng g guard auth --spec=false`
