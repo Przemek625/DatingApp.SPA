@@ -72,6 +72,9 @@ https://medium.com/front-end-hacking/typescript-class-vs-interface-99c0ae1c2136
 # Typescript Docs
 https://www.typescriptlang.org/docs/home.html
 
+# From Angular docs
+https://angular.io/api/forms/AbstractControlDirective#dirty
+
 # CSS
 http://blog.atena.pl/position-relative-i-absolute
 http://webkod.pl/kurs-css/wlasciwosci/wszystkie/position#relative
