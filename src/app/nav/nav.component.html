@@ -39,8 +39,7 @@
             <!-- the conditional operator `?` says that unique_name is not essential -->
             Welcome {{ authService.decodedToken?.unique_name | titlecase }} <span class="caret"></span></a>
           <ul class="dropdown-menu" *dropdownMenu>
-            <li><a href="#">Edit Profile</a></li>
-            <li><a href="#"><i class="fa fa-user"></i>Edit Profile</a></li>
+            <li><a [routerLink]="['/member/edit']"><i class="fa fa-user"></i>Edit Profile</a></li>
             <li role="separator" class="divider"></li>
             <li><a (click)="logout()" href="#"><i class="fa fa-sign-out"></i>Logout</a></li>
           </ul>
