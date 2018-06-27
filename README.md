@@ -49,6 +49,7 @@ https://github.com/auth0/angular2-jwt
 https://github.com/auth0/angular2-jwt/tree/pre-v1.0
 https://valor-software.com/ngx-bootstrap/
 https://bootswatch.com/
+https://www.npmjs.com/package/ngx-gallery
 
 # Useful links
 http://reactivex.io/
@@ -70,6 +71,10 @@ https://medium.com/front-end-hacking/typescript-class-vs-interface-99c0ae1c2136
 
 # Typescript Docs
 https://www.typescriptlang.org/docs/home.html
+
+# CSS
+http://blog.atena.pl/position-relative-i-absolute
+http://webkod.pl/kurs-css/wlasciwosci/wszystkie/position#relative
 
 #Generate guard
 `ng g guard auth --spec=false`
