@@ -33,6 +33,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 `npm install angular2-jwt --save`
 `npm install ngx-bootstrap --save`
 `npm install bootswatch@3.3.7 --save`
+`npm install ngx-gallery --save`
+
+
 
 # Start App
 `np serve`
