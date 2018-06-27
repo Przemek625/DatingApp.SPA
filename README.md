@@ -27,13 +27,8 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ## Instal bootstrap and font-awesome
-`npm install bootstrap@3.3.7`
-`npm install font-awesome@4.7.0`
-
-or
-
-`npm install bootstrap@3.3.7 font-awesome --save`
-
+`npm install bootstrap@3.3.7 --save`
+`npm install font-awesome@4.7.0 --save`
 `npm install alertifyjs --save` 
 `npm install angular2-jwt --save`
 `npm install ngx-bootstrap --save`
@@ -62,6 +57,10 @@ https://stackoverflow.com/questions/48092880/ng-serve-not-detecting-file-changes
 
 # When to use Angular’s forRoot() method
 https://medium.com/@chrishouse/when-to-use-angulars-forroot-method-400094a0ebb7
+
+# Understand Angular Resolve
+https://codeburst.io/understanding-resolvers-in-angular-736e9db71267
+http://www.angular.love/2016/12/27/angular-2-resolver-dostarczamy-dane-przed-aktywacja-routa/
 
 # Typescript links
 https://medium.com/front-end-hacking/typescript-class-vs-interface-99c0ae1c2136
