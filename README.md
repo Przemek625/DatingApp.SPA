@@ -66,6 +66,11 @@ https://medium.com/@chrishouse/when-to-use-angulars-forroot-method-400094a0ebb7
 https://codeburst.io/understanding-resolvers-in-angular-736e9db71267
 http://www.angular.love/2016/12/27/angular-2-resolver-dostarczamy-dane-przed-aktywacja-routa/
 
+# Angular component interaction
+https://angular.io/api/core/ViewChild
+https://medium.com/@tkssharma/understanding-viewchildren-viewchild-contentchildren-and-contentchild-b16c9e0358e
+https://alligator.io/angular/viewchild-access-component/
+
 # Typescript links
 https://medium.com/front-end-hacking/typescript-class-vs-interface-99c0ae1c2136
 
