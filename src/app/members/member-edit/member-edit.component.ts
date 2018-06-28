@@ -3,6 +3,8 @@ import { User } from '../../_models/User';
 import { ActivatedRoute } from '@angular/router';
 import { AlertifyService } from '../../_services/alertify.service';
 import { NgForm } from '@angular/forms';
+import { UserService } from '../../_services/user.service';
+import { AuthService } from '../../_services/auth.service';
 
 @Component({
   selector: 'app-member-edit',
@@ -10,26 +12,33 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./member-edit.component.css']
 })
 export class MemberEditComponent implements OnInit {
-
   user: User;
   // This how we access properties or methods of child components
   @ViewChild('editForm') editForm: NgForm;
 
-
-  constructor(private route: ActivatedRoute, private alertify: AlertifyService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private alertify: AlertifyService,
+    private userService: UserService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
     this.route.data.subscribe(data => {
       this.user = data['user'];
       console.log(this.user);
-
     });
   }
 
   updateUser() {
     console.log(this.user);
-    this.alertify.success('Profile Updated successfully');
-    this.editForm.reset(this.user);
+    this.userService
+      .updateUser(this.authService.decodedToken.nameid, this.user)
+      .subscribe(next => {
+        this.alertify.success('Profile Updated successfully');
+        this.editForm.reset(this.user);
+      }, error => {
+        this.alertify.error(error);
+      });
   }
-
 }
