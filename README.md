@@ -34,6 +34,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 `npm install ngx-bootstrap --save`
 `npm install bootswatch@3.3.7 --save`
 `npm install ngx-gallery --save`
+`npm install ng2-file-upload --save`
 
 
 
@@ -50,6 +51,7 @@ https://github.com/auth0/angular2-jwt/tree/pre-v1.0
 https://valor-software.com/ngx-bootstrap/
 https://bootswatch.com/
 https://www.npmjs.com/package/ngx-gallery
+https://github.com/valor-software/ng2-file-upload
 
 # Useful links
 http://reactivex.io/
