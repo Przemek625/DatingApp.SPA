@@ -35,6 +35,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 `npm install bootswatch@3.3.7 --save`
 `npm install ngx-gallery --save`
 `npm install ng2-file-upload --save`
+`npm install underscore --save`
+`npm install @types/underscore --save`
 
 
 

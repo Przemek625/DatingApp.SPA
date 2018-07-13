@@ -1,10 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { Photo } from '../../_models/Photo';
 import { FileUploader } from 'ng2-file-upload';
 import { environment } from '../../../environments/environment';
 import { AuthService } from '../../_services/auth.service';
 import { isNgTemplate } from '@angular/compiler';
 import { Jsonp } from '@angular/http';
+import { UserService } from '../../_services/user.service';
+import { error } from 'protractor';
+import { AlertifyService } from '../../_services/alertify.service';
+import * as _ from 'underscore';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-photo-editor',
@@ -12,13 +17,18 @@ import { Jsonp } from '@angular/http';
   styleUrls: ['./photo-editor.component.css']
 })
 export class PhotoEditorComponent implements OnInit {
-
   @Input() photos: Photo[];
   uploader: FileUploader = new FileUploader({});
   hasBaseDropZoneOver = false;
   baseUrl = environment.apiUrl;
+  currentMain: Photo;
+  @Output() getMemberPhotoChange = new EventEmitter<string>();
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private userService: UserService,
+    private alertify: AlertifyService
+  ) {}
 
   ngOnInit() {
     this.initializeUploader();
@@ -30,14 +40,17 @@ export class PhotoEditorComponent implements OnInit {
 
   initializeUploader() {
     this.uploader = new FileUploader({
-      url: this.baseUrl + 'users/' + this.authService.decodedToken.nameid + '/photos',
+      url:
+        this.baseUrl +
+        'users/' +
+        this.authService.decodedToken.nameid +
+        '/photos',
       authToken: 'Bearer ' + localStorage.getItem('token'),
       isHTML5: true,
       allowedFileType: ['image'],
       removeAfterUpload: true,
       autoUpload: false,
-      maxFileSize: 10 * 1024 * 1024,
-
+      maxFileSize: 10 * 1024 * 1024
     });
 
     this.uploader.onSuccessItem = (item, response, status, headers) => {
@@ -53,6 +66,23 @@ export class PhotoEditorComponent implements OnInit {
         this.photos.push(photo);
       }
     };
-
   }
+
+  setMainPhoto(photo: Photo) {
+    this.userService
+      .setMainPhoto(this.authService.decodedToken.nameid, photo.id)
+      .subscribe(
+        () => {
+          this.currentMain = _.findWhere(this.photos, {isMain: true});
+          this.currentMain.isMain = false;
+          photo.isMain = true;
+          this.getMemberPhotoChange.emit(photo.url);
+          console.log('successfuly updated photo');
+        },
+        error => {
+          this.alertify.error(error);
+        }
+      );
+  }
+
 }
