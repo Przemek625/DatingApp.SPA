@@ -7,12 +7,14 @@ import 'rxjs/add/observable/throw';
 import { Observable } from 'rxjs/Observable';
 import { Key } from 'protractor';
 import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
+import { User } from '../_models/User';
 
 @Injectable()
 export class AuthService {
   baseUrl = 'http://localhost:5000/api/auth/';
   userToken: any;
   decodedToken: any;
+  currentUser: User;
   jwtHelper: JwtHelper = new JwtHelper();
 
   constructor(private http: Http) {}
@@ -26,7 +28,9 @@ export class AuthService {
         const user = response.json();
         if (user) {
           localStorage.setItem('token', user.tokenString);
+          localStorage.setItem('user', JSON.stringify(user.user));
           this.decodedToken = this.jwtHelper.decodeToken(user.tokenString);
+          this.currentUser = user.user;
          // {nameid: "2", unique_name: "john", nbf: 1529655260, exp: 1529741660, iat: 1529655260}
           console.log(this.decodedToken);
           this.userToken = user.tokenString;
