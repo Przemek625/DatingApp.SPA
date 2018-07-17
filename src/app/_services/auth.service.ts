@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import { Key } from 'protractor';
 import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 import { User } from '../_models/User';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class AuthService {
@@ -16,8 +17,14 @@ export class AuthService {
   decodedToken: any;
   currentUser: User;
   jwtHelper: JwtHelper = new JwtHelper();
+  private photoUrl = new BehaviorSubject<string>('../../assets/user.png');
+  currentPhotoUrl = this.photoUrl.asObservable();
 
   constructor(private http: Http) {}
+
+  changeMemberPhoto(photoUrl: string) {
+    this.photoUrl.next(photoUrl);
+  }
 
   login(model: any) {
     // We return observable of type Response
@@ -34,6 +41,7 @@ export class AuthService {
          // {nameid: "2", unique_name: "john", nbf: 1529655260, exp: 1529741660, iat: 1529655260}
           console.log(this.decodedToken);
           this.userToken = user.tokenString;
+          this.changeMemberPhoto(this.currentUser.photoUrl);
         }
       })
       .catch(this.handleError);
