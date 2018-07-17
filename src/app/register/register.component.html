@@ -26,8 +26,8 @@
     && registerForm.get('confirmPassword').touched || registerForm.get('confirmPassword').touched 
     && registerForm.hasError('mismatch')}">
     <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confirmPassword">
-    <span class="help-block" *ngIf="registerForm.get('password').hasError('confirmPassword') && registerForm.get('confirmPassword').touched">
-      Confirmed Password cannot exceed 8 characters
+    <span class="help-block" *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').touched">
+      Confirmed Password is required
     </span>
     <span class="help-block" *ngIf="registerForm.get('confirmPassword').touched && registerForm.hasError('mismatch')">
       Confirm Password must match password
