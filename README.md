@@ -31,7 +31,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 `npm install font-awesome@4.7.0 --save`
 `npm install alertifyjs --save` 
 `npm install angular2-jwt --save`
-`npm install ngx-bootstrap --save`
+`npm install ngx-bootstrap --save` - this caused me problems with datepicker so better `npm install ngx-bootstrap@1.9.3`
+
 `npm install bootswatch@3.3.7 --save`
 `npm install ngx-gallery --save`
 `npm install ng2-file-upload --save`
