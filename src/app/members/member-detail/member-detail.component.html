@@ -1,7 +1,4 @@
-<p>
-  <!-- puting the question mark is temporary so that angular wont complain about empty property -->
-  {{user?.knownAs}}
-</p>
+
 <div class="container">
   <div class="row">
     <h1>{{user.knownAs}}</h1>
@@ -10,12 +7,12 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-default">
-        <img class="profile-image thumbnail" src="{{user?.photoUrl}}" alt="{{user.knownAs}}">
+        <img class="profile-image thumbnail" src="{{user.photoUrl ? user.photoUrl : '../../../assets/user.png'}}" alt="{{user.knownAs}}">
         <div class="panel-body">
           <div>
             <strong>Location:</strong>
             <!-- <p>{{user?.city}}, {{user.country}</p> -->
-            <p>{{user.city}}</p>
+            <p>{{user.city}}, {{user.country}}</p>
           </div>
 
           <div>
@@ -23,20 +20,19 @@
             <!-- <p>{{user?.city}}, {{user.country}</p> -->
             <p>{{user.age}}</p>
           </div>
-        </div>
 
-        <div>
-          <strong>Lact Active:</strong>
-          <!-- <p>{{user?.city}}, {{user.country}</p> -->
-          <p>{{user.lactActive}}</p>
-        </div>
+          <div>
+            <strong>Lact Active:</strong>
+            <!-- <p>{{user?.city}}, {{user.country}</p> -->
+            <p>{{user.lactActive}}</p>
+          </div>
 
-        <div>
-          <strong>Member Since:</strong>
-          <!-- <p>{{user?.city}}, {{user.country}</p> -->
-          <p>{{user.created}}</p>
+          <div>
+            <strong>Member Since:</strong>
+            <!-- <p>{{user?.city}}, {{user.country}</p> -->
+            <p>{{user.created}}</p>
+          </div>
         </div>
-
         <div class="panel-footer">
           <div class="btn-group-justified">
             <div class="btn-group">
