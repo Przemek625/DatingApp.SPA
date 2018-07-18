@@ -7,9 +7,9 @@ import {
   Validators,
   FormBuilder
 } from '@angular/forms';
-import { BsDatepickerConfig } from 'ngx-bootstrap';
 import { User } from '../_models/User';
 import { Router } from '@angular/router';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-register',
