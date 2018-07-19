@@ -24,13 +24,13 @@
           <div>
             <strong>Lact Active:</strong>
             <!-- <p>{{user?.city}}, {{user.country}</p> -->
-            <p>{{user.lactActive}}</p>
+            <p>{{user.lastActive | timeAgo}}</p>
           </div>
 
           <div>
             <strong>Member Since:</strong>
             <!-- <p>{{user?.city}}, {{user.country}</p> -->
-            <p>{{user.created}}</p>
+            <p>{{user.created | date: 'mediumDate'}}</p>
           </div>
         </div>
         <div class="panel-footer">

@@ -33,12 +33,12 @@
 
         <div>
           <strong>Lact Active:</strong>
-          <p>{{user.lactActive}}</p>
+          <p>{{user.lastActive | timeAgo}}</p>
         </div>
 
         <div>
           <strong>Member Since:</strong>
-          <p>{{user.created}}</p>
+          <p>{{user.created | date: 'mediumDate'}}</p>
         </div>
 
         <div class="panel-footer">

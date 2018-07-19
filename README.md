@@ -38,6 +38,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 `npm install ng2-file-upload --save`
 `npm install underscore --save`
 `npm install @types/underscore --save`
+`npm install time-ago-pipe --save`
 
 
 
