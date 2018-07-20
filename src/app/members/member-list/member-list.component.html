@@ -5,3 +5,14 @@
     </div>
   </div>
 </div>
+
+<div class="text-center">
+  <pagination 
+  [boundaryLinks]="true" 
+  [totalItems]="pagination.TotalItems"
+  [itemsPerPage]="pagination.ItemsPerPage"
+  (pageChanged)=pageChanged($event)
+  [(ngModel)]="pagination.CurrentPage" 
+  class="pagination-sm" previousText="&lsquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+  </pagination>
+</div>
