@@ -28,6 +28,8 @@ export class UserService {
       queryString += '&minAge=' + userParams.minAge;
       queryString += '&maxAge=' + userParams.maxAge;
       queryString += '&gender=' + userParams.gender;
+      queryString += '&orderBy=' + userParams.orderBy;
+
     }
 
     return this.authHttp
