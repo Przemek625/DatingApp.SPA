@@ -15,7 +15,7 @@ export class UserService {
 
   constructor(private authHttp: AuthHttp) {}
 
-  getUsers(page?: number, itemsPerPage?: number, userParams?) {
+  getUsers(page?: number, itemsPerPage?: number, userParams?, likesParam?) {
     const paginatedResult: PaginatedResult<User[]> = new PaginatedResult<
       User[]
     >();
@@ -29,7 +29,14 @@ export class UserService {
       queryString += '&maxAge=' + userParams.maxAge;
       queryString += '&gender=' + userParams.gender;
       queryString += '&orderBy=' + userParams.orderBy;
+    }
 
+    if (likesParam === 'Likers') {
+      queryString += '&likers=' + 'true';
+    }
+
+    if (likesParam === 'Likees') {
+      queryString += '&likees=' + 'true';
     }
 
     return this.authHttp
@@ -73,6 +80,13 @@ export class UserService {
     return this.authHttp
       .delete(this.baseUrl + 'users/' + userId + '/photos/' + id)
       .catch(this.handleError);
+  }
+
+  sendLike(id: number, recipientId: number) {
+    return this.authHttp.post(
+      this.baseUrl + 'users/' + id + '/like/' + recipientId,
+      {}
+    );
   }
 
   private handleError(error: any) {

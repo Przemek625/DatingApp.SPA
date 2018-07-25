@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../../_models/User';
+import { AuthService } from '../../_services/auth.service';
+import { UserService } from '../../_services/user.service';
+import { AlertifyService } from '../../_services/alertify.service';
 
 @Component({
   selector: 'app-member-card',
@@ -11,9 +14,18 @@ export class MemberCardComponent implements OnInit {
   // We use Input when we want to pass information into our child component
   @Input() user: User;
 
-  constructor() { }
+  constructor(private authService: AuthService, private userService: UserService, private alertify: AlertifyService) { }
 
   ngOnInit() {
+  }
+
+  sendLike(id: number) {
+    this.userService.sendLike(this.authService.decodedToken.nameid, id).subscribe(data => {
+      this.alertify.success('You have liked' + this.user.knownAs);
+    }, error => {
+      console.log(error);
+      this.alertify.error(error);
+    });
   }
 
 }
